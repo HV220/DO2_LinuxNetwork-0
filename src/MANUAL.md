@@ -125,3 +125,15 @@ default via 10.10.0.1 dev eth0
 * Команда sudo dhclient -r enp0s3 освобождает текущий адрес интерфейса enp0s3. Команда sudo dhclient enp0s3 задает новый адрес указанному интерфейсу.
 ![dhclient](./images/part62.png)
 ## Part 7. **NAT**
+* Содержание файла /etc/apache2/ports.conf на ws22 и r2 (строка Listen 80 изменена на Listen 0.0.0.0:80):
+![apache2](./images/part63.png)
+* Запустить веб-сервер Apache командой service apache2 start на ws22 и r1:
+![apache2](./images/part64.png)
+* Добавить в фаервол, созданный по аналогии с фаерволом из Части 4, на r2 правила
+![apache2](./images/part65.png)
+* Проверить соединение между ws22 и r1 командой ping
+![apache2](./images/part66.png)
+* Разрешить маршрутизацию всех пакетов протокола ICMP
+![ICMP](./images/part67.png)
+* Проверка соединения между ws22 и r1 командой ping
+![ICMP](./images/part68.png)
